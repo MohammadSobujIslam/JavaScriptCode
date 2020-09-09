@@ -60,3 +60,16 @@ function exam(){
 var obj=exam();
 console.log(obj)
 obj.print();
+
+// Inner function pactice;
+function firstout(name){
+    function firstin()
+    {
+        console.log("hello what is your name "+name)
+        console.log("it is appropiate inner function")
+    }
+    firstin();
+    console.log("this is out function")
+}
+var inner=firstout("sobuj mia")
+

@@ -66,5 +66,6 @@ console.log(ovj)
 }
 var ml=pow(2)(5);
 console.log(ml)
+console.log("chapter close in first class function")
  
 

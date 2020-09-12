@@ -67,5 +67,21 @@ console.log(ovj)
 var ml=pow(2)(5);
 console.log(ml)
 console.log("chapter close in first class function")
+function addd(a,b){
+    return a+b;
+//   var vv=  a+b
+//   console.log(vv)
+}
+var add=addd
+console.log(add (3,5))
+ console.log(add(3,8) ) 
+ console.log(addd(3,2))
+
+
+
+var arrv=[]
+arrv.push(add)
+console.log(arrv)
+console.log(arrv[0](34,45))
  
 

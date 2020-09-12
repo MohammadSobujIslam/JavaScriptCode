@@ -1,0 +1,202 @@
+[33mcommit ee858da76470fd94ae395dcb06f5fc7c0d0e31bf[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: MohammadSobujIslam <sobuj15-10699@diu.edu.bd>
+Date:   Fri Sep 11 00:02:09 2020 +0600
+
+    first commit
+
+[1mdiff --git a/CallBackFunction.js b/CallBackFunction.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..44ba503[m
+[1m--- /dev/null[m
+[1m+++ b/CallBackFunction.js[m
+[36m@@ -0,0 +1,59 @@[m
+[32m+[m[32mfunction Callback(a,b,cbf){[m
+[32m+[m[32m    var c=a+b;//7[m
+[32m+[m[32m    var d=a-b;//-1[m
+[32m+[m[32m    var result=cbf(c,d)[m
+[32m+[m[32m    return result[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mvar r=Callback(3,4,function(e,f){[m
+[32m+[m[32m    return e+f;[m
+[32m+[m[32m})[m
+[32m+[m[32mconsole.log(r)[m
+[32m+[m[32m function sub(f,g){[m
+[32m+[m[32m   return f-g;[m
+[32m+[m[32m }[m
+[32m+[m[32m rr=Callback(4,5,sub)[m
+[32m+[m[32m console.log(rr)[m
+[32m+[m[32m// // same work using in higher order function[m
+[32m+[m
+[32m+[m[32m function higer(a,b){[m
+[32m+[m[32m    var c=a+b;[m
+[32m+[m[32m    var d=a-b;[m
+[32m+[m[32m     return function(){[m[41m [m
+[32m+[m[32m         return c-d;[m
+[32m+[m[32m     }[m
+[32m+[m
+[32m+[m[32m }[m
+[32m+[m[32m var h=higer(4,5)();[m
+[32m+[m[32m var hh=higer(6,7)[m
+[32m+[m[32m console.log(h)[m
+[32m+[m[32m console.log(hh())[m
+[32m+[m
+[32m+[m
+[32m+[m[32m// // callback function again here;[m
+[32m+[m[32mfunction Callb(a,b,cbf){[m[41m   [m
+[32m+[m[32m      var c=a+b;[m
+[32m+[m[32m       var d=c-b;[m[41m    [m
+[32m+[m[32m       var result=cbf(c,d)[m
+[32m+[m[32m     return result +(function(){[m
+[32m+[m[32m         return a*b;[m
+[32m+[m[32m     }())[m
+[32m+[m
+[32m+[m[32m    }[m
+[32m+[m[32m    console.log( g=Callb(3,4,sub))[m
+[32m+[m
+[32m+[m[32m    // call abar[m
+[32m+[m[32m    function Callm(a,b,cbf){[m[41m   [m
+[32m+[m[32m        var c=a+b;[m
+[32m+[m[32m         var d=a-b;[m[41m    [m
+[32m+[m[32m         var result=cbf(c,d)[m
+[32m+[m[32m         return console.log('multiple = '+result)[m
+[32m+[m[41m      [m
+[32m+[m[41m  [m
+[32m+[m[32m      }[m
+[32m+[m[32m      function multi(a,s){[m
+[32m+[m[32m          return a*s;[m
+[32m+[m[32m      }[m
+[32m+[m[32m      Callm(2,3,multi)[m
+[32m+[m
+[32m+[m
+[1mdiff --git a/CreatForEachf.js b/CreatForEachf.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..36ed6bd[m
+[1m--- /dev/null[m
+[1m+++ b/CreatForEachf.js[m
+[36m@@ -0,0 +1,38 @@[m
+[32m+[m[32mvar arr=[1,2,3,4,5,6,7,8,9][m
+[32m+[m[32m// sum=0[m
+[32m+[m[32m// arr.forEach(function(value,index,arr){[m
+[32m+[m[41m    [m
+[32m+[m[32m//     console.log(value,index,arr)[m
+[32m+[m[32m//     sum+=value[m
+[32m+[m
+[32m+[m[32m// })[m
+[32m+[m[32m// console.log(sum)[m
+[32m+[m
+[32m+[m[32m// now implementation in foreach function[m
+[32m+[m[32m// function ForEach(arr){[m
+[32m+[m[32m//     for(var i=0;i<arr.length;i++)[m
+[32m+[m[32m//     {[m
+[32m+[m[32m//         console.log(arr[i]);[m
+[32m+[m[32m//     }[m
+[32m+[m[32m// }[m
+[32m+[m[32m// ForEach(arr)[m
+[32m+[m
+[32m+[m
+[32m+[m[32mfunction ForEach(arr,cb){[m
+[32m+[m[32m    for(var i=0;i<arr.length;i++)[m
+[32m+[m[32m    {[m
+[32m+[m[32m        cb(arr[i],i,arr)[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[32m+[m[32msum=0[m
+[32m+[m[32mForEach(arr,function(value,index,arr){[m
+[32m+[m[32m    sum+=value;[m
+[32m+[m[32m    console.log(value,index,arr)[m
+[32m+[m[32m})[m[41m [m
+[32m+[m[32mconsole.log(sum)[m
+[32m+[m
+[32m+[m
+[32m+[m[32mForEach(arr,function(value,index,arr){[m
+[32m+[m[32m   arr[index]=value+10[m
+[32m+[m[32m})[m
+[32m+[m[32mconsole.log(arr)[m
+\ No newline at end of file[m
+[1mdiff --git a/InfiniteLoop.js b/InfiniteLoop.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..fa1a28e[m
+[1m--- /dev/null[m
+[1m+++ b/InfiniteLoop.js[m
+[36m@@ -0,0 +1,26 @@[m
+[32m+[m[32m// var isrun=true[m
+[32m+[m[32m// while(isrun){[m
+[32m+[m[32m//     var rand=Math.floor(Math.random()*50+1)[m
+[32m+[m[41m    [m
+[32m+[m[32m//     if(rand==5){[m
+[32m+[m[32m//         console.log('\nYou are winner and you have got exact number= '+rand+'\n')[m
+[32m+[m[32m//         break;[m
+[32m+[m
+[32m+[m[32m//     }else{[m
+[32m+[m[32m//         console.log('no match exact number,You have got this number is = '+rand)[m
+[32m+[m[32m//     }[m
+[32m+[m[32m// }[m
+[32m+[m
+[32m+[m
+[32m+[m[32m//Now explain infinite loop[m
+[32m+[m[32mfor( ; ; ){[m
+[32m+[m[32m    var rand=Math.floor(Math.random()*50+1)[m
+[32m+[m[41m    [m
+[32m+[m[32m    if(rand==5){[m
+[32m+[m[32m        console.log('\nYou are winner and  exact number= '+rand+'\n')[m
+[32m+[m[32m        break;[m
+[32m+[m
+[32m+[m[32m    }else{[m
+[32m+[m[32m        console.log('no match exact number,this number = '+rand)[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+\ No newline at end of file[m
+[1mdiff --git a/String.js b/String.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..425d3d9[m
+[1m--- /dev/null[m
+[1m+++ b/String.js[m
+[36m@@ -0,0 +1,29 @@[m
+[32m+[m[32m// string literal and constructor[m
+[32m+[m
+[32m+[m[32mvar str='Strings literal' // literal string[m
+[32m+[m[32mvar strc=String('Strings constructor') // constructor strings[m
+[32m+[m[32mconst n=10[m
+[32m+[m[32mconst st=n[m
+[32m+[m[32mconsole.log(n,st)[m
+[32m+[m[32mvar stt=n.toString()[m
+[32m+[m[32mvar sr=String(n)[m
+[32m+[m[32mconsole.log(n.toString())[m
+[32m+[m[32mconsole.log(sr)[m
+[32m+[m[32m   var strs=new String(n)[m
+[32m+[m[32m   console.log(strs) // it is not string define[m
+[32m+[m
+[32m+[m[32m// Now i am discuss Strings part in escape notation[m
+[32m+[m
+[32m+[m[32mvar ste='This is a String example'[m
+[32m+[m[32mconsole.log(ste)[m
+[32m+[m[32mconsole.log('This is a String "example"')[m
+[32m+[m[32mconsole.log (" 'This is a String' example ")[m
+[32m+[m[32mconsole.log('This is a String \'example\'')[m
+[32m+[m[32mconsole.log('This is a String \"example\"')[m
+[32m+[m[32mconsole.log('This is a String \'example"')[m
+[32m+[m[32mconsole.log('This is a String \n"example"')[m
+[32m+[m[32mconsole.log('This is a String \t"example"')[m
+[32m+[m[32mvar st2='abc'[m
+[32m+[m[32mvar st3='bcd'[m
+[32m+[m[32mconsole.log(st2==st3)[m
+[32m+[m
+[1mdiff --git a/callback.js b/callback.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..b2e6b0e[m
+[1m--- /dev/null[m
+[1m+++ b/callback.js[m
+[36m@@ -0,0 +1,11 @@[m
+[32m+[m[32mfunction ballback(a,b,cbf){[m
+[32m+[m[32m    var c=a+b;[m
+[32m+[m[32m    var d=c-d;[m
+[32m+[m[32m    var result=cbf(c,d)[m
+[32m+[m[32m    return result[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mvar r=ballback(3,4,function(c,d){[m
+[32m+[m[32m    return c+d;[m
+[32m+[m[32m})[m
+[32m+[m[32mconsole.log(r)[m
+\ No newline at end of file[m
